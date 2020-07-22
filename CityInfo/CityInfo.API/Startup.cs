@@ -33,6 +33,9 @@ namespace CityInfo.API
                 app.UseExceptionHandler();
             }
 
+            //use status code pages, handle 404's etc
+            app.UseStatusCodePages();
+
             //use mvc middleware
             app.UseMvc();
 

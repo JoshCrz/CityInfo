@@ -13,7 +13,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "Key": "Value",
-        "ASPNETCORE_ENVIRONMENT": "Production"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "CityInfo.API": {
