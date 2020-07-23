@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 
 namespace CityInfo.API
 {
@@ -17,8 +19,25 @@ namespace CityInfo.API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //add mvc to the project
-            services.AddMvc();
+            //add mvc to the project            
+            services.AddMvc()
+                .AddMvcOptions(o =>
+                {                    
+                    o.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
+                    //o.OutputFormatters.Clear();
+                });
+
+            //addJson options, below we are removing the default camelCase responses
+            /*
+            .AddJsonOptions(o =>
+            {
+                if (o.SerializerSettings.ContractResolver != null)
+                {
+                    var castedResolver = o.SerializerSettings.ContractResolver
+                        as DefaultContractResolver;
+                    castedResolver.NamingStrategy = null;
+                }
+            });*/
 
         }
 
@@ -33,7 +52,7 @@ namespace CityInfo.API
                 app.UseExceptionHandler();
             }
 
-            //use status code pages, handle 404's etc
+            //use status code pages, handle 404's etc (optional)
             app.UseStatusCodePages();
 
             //use mvc middleware
