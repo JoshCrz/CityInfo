@@ -4,3 +4,7 @@ CityInfo/.vs/CityInfo/DesignTimeBuild/.dtbcache.v2
 *.cache
 *.dll
 *.pdb
+CityInfo/.vs/CityInfo/v16/.suo
+*.dll
+CityInfo/CityInfo.API/bin/Debug/netcoreapp2.1/CityInfo.API.pdb
+*.cache
