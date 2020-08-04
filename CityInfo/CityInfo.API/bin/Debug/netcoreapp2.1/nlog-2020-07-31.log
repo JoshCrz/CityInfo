@@ -1,0 +1,15 @@
+2020-07-31 21:48:35.8183|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Josh\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-07-31 21:48:37.8128|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51789/  
+2020-07-31 21:48:37.8128|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51789/  0
+2020-07-31 21:48:37.8128|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51789/api/cities/10/pointsofinterest  
+2020-07-31 21:48:38.0401|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 182.8649ms 200 
+2020-07-31 21:48:38.5581|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 717.1262ms 404 text/plain
+2020-07-31 21:48:38.7241|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetPointsOfInterest(Int32) on controller CityInfo.API.Controllers.PointsOfInterestController (CityInfo.API).
+2020-07-31 21:48:38.8878|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method CityInfo.API.Controllers.PointsOfInterestController.GetPointsOfInterest (CityInfo.API) - Validation state: Valid
+2020-07-31 21:48:39.1502|FATAL|CityInfo.API.Controllers.PointsOfInterestController|Exception while getting points of interest for city with id 10
+2020-07-31 21:48:39.1673|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method CityInfo.API.Controllers.PointsOfInterestController.GetPointsOfInterest (CityInfo.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 263.6821ms.
+2020-07-31 21:48:39.3409|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.String'.
+2020-07-31 21:48:39.5229|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action CityInfo.API.Controllers.PointsOfInterestController.GetPointsOfInterest (CityInfo.API) in 679.7998ms
+2020-07-31 21:48:39.6559|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1785.5459ms 500 text/plain; charset=utf-8
+2020-07-31 21:48:39.9848|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51789/favicon.ico  
+2020-07-31 21:48:39.9848|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 7.9253ms 404 text/plain

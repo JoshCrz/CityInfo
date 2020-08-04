@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CityInfo.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -38,6 +39,21 @@ namespace CityInfo.API
                     castedResolver.NamingStrategy = null;
                 }
             });*/
+
+
+            //we can optionally pass either just the service.
+            //services.AddTransient<LocalMailService>();
+
+            //OR, we can pass the interface and the implementation
+            //this is telling the app, whenever I inject IMailService, provide the LocalMailService
+#if DEBUG
+            services.AddTransient<IMailService, LocalMailService>();
+#else
+            services.AddTransient<IMailService, CloudMailService>();
+#endif
+
+
+
 
         }
 
