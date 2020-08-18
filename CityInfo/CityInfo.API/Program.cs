@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using CityInfo.API.Contexts;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
+using Remotion.Linq.Clauses.ResultOperators;
 
 namespace CityInfo.API
 {
@@ -24,7 +28,27 @@ namespace CityInfo.API
             {
                 
                 logger.Info("initialising application...");
-                CreateWebHostBuilder(args).Build().Run();
+                var host = CreateWebHostBuilder(args).Build();
+
+                using(var scope = host.Services.CreateScope())
+                {
+                    try
+                    {
+                        var context = scope.ServiceProvider.GetService<CityInfoContext>();
+
+                        //for demo purposes, delete db and migrate on startup so we start with a clean slate
+                        context.Database.EnsureDeleted();
+                        context.Database.Migrate();
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex, "An error occured whilst migrating db");
+                    }
+                }
+
+                host.Run();
+
+
             }
             catch (Exception ex)
             {

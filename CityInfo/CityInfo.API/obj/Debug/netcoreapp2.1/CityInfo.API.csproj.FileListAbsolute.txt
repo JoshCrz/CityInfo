@@ -5,7 +5,6 @@ C:\GitHub\CityInfo\CityInfo\CityInfo.API\bin\Debug\netcoreapp2.1\CityInfo.API.ru
 C:\GitHub\CityInfo\CityInfo\CityInfo.API\bin\Debug\netcoreapp2.1\CityInfo.API.dll
 C:\GitHub\CityInfo\CityInfo\CityInfo.API\bin\Debug\netcoreapp2.1\CityInfo.API.pdb
 C:\GitHub\CityInfo\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.API.csprojAssemblyReference.cache
-C:\GitHub\CityInfo\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.API.csproj.CoreCompileInputs.cache
 C:\GitHub\CityInfo\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.API.RazorAssemblyInfo.cache
 C:\GitHub\CityInfo\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.API.RazorAssemblyInfo.cs
 C:\GitHub\CityInfo\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.API.AssemblyInfoInputs.cache
@@ -14,3 +13,7 @@ C:\GitHub\CityInfo\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.API.Ra
 C:\GitHub\CityInfo\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.API.dll
 C:\GitHub\CityInfo\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.API.pdb
 C:\GitHub\CityInfo\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.API.genruntimeconfig.cache
+C:\GitHub\CityInfo\CityInfo\CityInfo.API\bin\Debug\netcoreapp2.1\nlog.config
+C:\GitHub\CityInfo\CityInfo\CityInfo.API\bin\Debug\netcoreapp2.1\appsettings.json
+C:\GitHub\CityInfo\CityInfo\CityInfo.API\bin\Debug\netcoreapp2.1\appsettings.Production.json
+C:\GitHub\CityInfo\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.1\CityInfo.API.csproj.CoreCompileInputs.cache

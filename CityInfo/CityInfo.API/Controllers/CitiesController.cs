@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using CityInfo.API.Models;
+using CityInfo.API.Services;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,30 +13,60 @@ namespace CityInfo.API
     [Route("api/cities")]
     public class CitiesController : ControllerBase
     {
+        private readonly ICityInfoRepository _cityInfoRepository;
+        private readonly IMapper _autoMapper;
+
+        public CitiesController(ICityInfoRepository cityInfoRepository,
+            IMapper mapper)
+        {
+            _cityInfoRepository = cityInfoRepository ??
+                throw new ArgumentNullException(nameof(cityInfoRepository));
+
+            _autoMapper = mapper ??
+                throw new ArgumentNullException(nameof(mapper));
+
+        }
+
+        public ICityInfoRepository CityInfoRepository { get; }
+
         [HttpGet]
         public IActionResult GetCities()
         {
-            return Ok(CitiesDataStore.Current.Cities);            
+            var cityEntities = _cityInfoRepository.GetCities();
+
+            //manual mapping, redundant now we use AutoMapper
+            /*var results = new List<CityWithoutPointsOfInterestDto>();
+
+            foreach(var cityEntity in cityEntities)
+            {
+                //mapping from CityEntity to a Dto
+                results.Add(new CityWithoutPointsOfInterestDto
+                {
+                    Id = cityEntity.Id,
+                    Name = cityEntity.Name,
+                    Description = cityEntity.Description
+                });
+            }*/
+            return Ok(_autoMapper.Map<IEnumerable<CityWithoutPointsOfInterestDto>>(cityEntities));
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetCity(int id)
+        public IActionResult GetCity(int id, bool includePointsOfInterest = false)
         {
-            //var city = CitiesDataStore.Current.Cities.Where(x => x.Id == id);
-
-            var cityToReturn = CitiesDataStore.Current.Cities
-                    .FirstOrDefault(c => c.Id == id);
-
-            if(cityToReturn == null)
+            var city = _cityInfoRepository.GetCity(id, includePointsOfInterest);
+            if(city == null)
             {
                 return NotFound();
             }
 
-            return Ok(cityToReturn);
-                
-            /*return new JsonResult(
-                CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == id));
-            */
+            if (includePointsOfInterest)
+            {
+                return Ok(_autoMapper.Map<CityDto>(city));
+            }
+            else
+            {                
+                return Ok(_autoMapper.Map<CityWithoutPointsOfInterestDto>(city));
+            }
         }
 
 
